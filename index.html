@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./promise.js"></script>
+</head>
+<body>
+    <script>
+        function doTimeRandom(res,rej){
+            let n = Math.random();
+            setTimeout(() => {
+                if( n < 0.5 ){
+                    res(n);
+                } else {
+                    rej(n);
+                }
+            }, 1000);
+        }
+        // let pro1 = new Pro(doTimeRandom);
+        // console.log(pro1);
+        // pro1.then((n)=>{
+        //     console.log("success", n);
+        // },(n)=>{
+        //     console.log("fail", n);
+        // });
+
+        let pro2 = new Pro(doTimeRandom).then((n)=>{
+            console.log("success", n);
+        },(n)=>{
+            console.log("fail", n);
+        });
+    </script>
+</body>
+</html>
